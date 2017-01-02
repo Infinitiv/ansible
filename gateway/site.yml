@@ -1,0 +1,10 @@
+- hosts: gateways
+  become: yes
+  become_method: sudo
+
+  roles:
+    - common
+    - dhcp
+    - dns
+#    - openvpn
+    - shorewall

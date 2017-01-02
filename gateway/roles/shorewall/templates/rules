@@ -1,0 +1,21 @@
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+DNS(ACCEPT) loc fw
+DNS(ACCEPT) fw net
+SSH(ACCEPT) fw loc
+SSH(ACCEPT) net fw
+Ping(ACCEPT) loc fw
+Ping(DROP) net fw
+ACCEPT fw loc icmp
+ACCEPT fw net icmp
+NTP(ACCEPT) fw net
+ACCEPT loc fw udp 53
+ACCEPT loc fw tcp 53
+HTTP(ACCEPT) fw net
+HTTP(ACCEPT) loc net
+HTTPS(ACCEPT) fw net
+HTTPS(ACCEPT) loc net

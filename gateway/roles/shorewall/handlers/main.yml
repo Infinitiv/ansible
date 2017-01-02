@@ -1,0 +1,4 @@
+- name: start shorewall
+  service: 
+    name: shorewall
+    state: started

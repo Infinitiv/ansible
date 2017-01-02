@@ -1,0 +1,10 @@
+- name: Install dns
+  apt:
+    name: bind9
+    state: present
+- name: Configure dns
+  template:
+    src: named.conf.options
+    dest: /etc/bind/named.conf.options
+  notify:
+    - restart dns
