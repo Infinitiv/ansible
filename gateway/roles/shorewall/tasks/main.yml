@@ -1,3 +1,4 @@
+---
 - name: Install shorewall
   apt:
     name: shorewall
@@ -43,4 +44,4 @@
     src: blrules
     dest: /etc/shorewall/blrules
   notify:
-    - start shorewall
+    - restart shorewall

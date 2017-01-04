@@ -6,16 +6,22 @@
 ?SECTION NEW
 DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
+DNS(ACCEPT) vpn fw
 SSH(ACCEPT) fw loc
 SSH(ACCEPT) net fw
 Ping(ACCEPT) loc fw
+Ping(ACCEPT) vpn fw
 Ping(DROP) net fw
 ACCEPT fw loc icmp
 ACCEPT fw net icmp
+ACCEPT fw vpn icmp
 NTP(ACCEPT) fw net
-ACCEPT loc fw udp 53
-ACCEPT loc fw tcp 53
+NTP(ACCEPT) loc fw
+NTP(ACCEPT) vpn fw
 HTTP(ACCEPT) fw net
 HTTP(ACCEPT) loc net
+HTTP(ACCEPT) vpn net
 HTTPS(ACCEPT) fw net
 HTTPS(ACCEPT) loc net
+HTTPS(ACCEPT) vpn net
+ACCEPT loc fw udp 1194

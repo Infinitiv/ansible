@@ -1,2 +1,4 @@
 ACCEPT enp0s8 -
 ACCEPT - enp0s8
+ACCEPT tun0 -
+ACCEPT - tun0

@@ -15,3 +15,6 @@ auto enp0s8
 iface enp0s8 inet static
 address 192.168.45.1
 netmask 255.255.255.0
+
+# static routes
+up ip ro add 10.0.5.0/24 via 192.168.7
