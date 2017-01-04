@@ -1,0 +1,4 @@
+interfaces: isma_gw
+default_interface: default_interface_isma_gw
+
+

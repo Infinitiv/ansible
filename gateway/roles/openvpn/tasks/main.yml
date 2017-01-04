@@ -12,7 +12,7 @@
     - server.crt
     - server.key
 - name: Create ta.key
-  command: openvpn --genkey --secret /etc/openvpn/ta.key
+  command: openvpn --genkey --secret /etc/openvpn/ta.key creates=/etc/openvpn/ta.key
 - name: Fethc ta.key
   fetch:
     src: /etc/openvpn/ta.key
