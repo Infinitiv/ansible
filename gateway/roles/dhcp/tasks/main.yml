@@ -10,6 +10,6 @@
 - name: Configure default interface
   template:
     src: "{{default_interface}}"
-    dest: /etc/dhcp/isc-dhcp-server
+    dest: /etc/default/isc-dhcp-server
   notify:
     - restart dhcpd
