@@ -4,24 +4,34 @@
 ?SECTION INVALID
 ?SECTION UNTRACKED
 ?SECTION NEW
+#dhcp
+ACCEPT loc fw udp 67:68
+ACCEPT fw loc udp 67:68
+#dns
 DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
 DNS(ACCEPT) vpn fw
+#ssh
 SSH(ACCEPT) fw loc
 SSH(ACCEPT) net fw
+#ping
 Ping(ACCEPT) loc fw
 Ping(ACCEPT) vpn fw
 Ping(DROP) net fw
+#icmp
 ACCEPT fw loc icmp
 ACCEPT fw net icmp
 ACCEPT fw vpn icmp
+#ntp
 NTP(ACCEPT) fw net
 NTP(ACCEPT) loc fw
 NTP(ACCEPT) vpn fw
+#http/https
 HTTP(ACCEPT) fw net
 HTTP(ACCEPT) loc net
 HTTP(ACCEPT) vpn net
 HTTPS(ACCEPT) fw net
 HTTPS(ACCEPT) loc net
 HTTPS(ACCEPT) vpn net
+#openvpn
 ACCEPT loc fw udp 1194

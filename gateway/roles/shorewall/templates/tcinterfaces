@@ -1,2 +1,3 @@
-enp0s8 External 50mbit
 enp0s3 External 50mbit
+enp0s8 Internal 50mbit
+tun0 Internal 50mbit
