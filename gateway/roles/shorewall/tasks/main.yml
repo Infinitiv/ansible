@@ -13,11 +13,11 @@
     dest: /etc/shorewall/zones
 - name: Configure shorewall interfaces
   template: 
-    src: interfaces
+    src: "{{shorewall_interfeces}}"
     dest: /etc/shorewall/interfaces
 - name: Configure shorewall masq
   template: 
-    src: masq
+    src: "{{shorewall_masq}}"
     dest: /etc/shorewall/masq
 - name: Configure shorewall policy
   template: 
@@ -29,11 +29,11 @@
     dest: /etc/shorewall/rules
 - name: Configure shorewall stoppedrules
   template: 
-    src: stoppedrules
+    src: "{{shorewall_stoppedrules}}"
     dest: /etc/shorewall/stoppedrules
 - name: Configure shorewall tcinterfaces
   template: 
-    src: tcinterfaces
+    src: "{{shorewall_tcinterfaces}}"
     dest: /etc/shorewall/tcinterfaces
 - name: Configure shorewall tcpri
   template: 

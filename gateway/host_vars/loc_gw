@@ -1,3 +1,7 @@
-interfaces: loc_gw
-default_interface: default_interface_loc_gw
+common_interfaces: loc_gw
+dhcp_default_interface: default_interface_loc_gw
+shorewall_stoppedrules: stoppedrules_loc_gw
+shorewall_interfeces: interfaces_loc_gw
+shorewall_masq: masq_loc_gw
+shorewall_tcinterfaces: tcinterfaces_loc_gw
 

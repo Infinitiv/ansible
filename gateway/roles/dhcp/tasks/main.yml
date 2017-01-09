@@ -9,7 +9,7 @@
     dest: /etc/dhcp/dhcpd.conf
 - name: Configure default interface
   template:
-    src: "{{default_interface}}"
+    src: "{{dhcp_default_interface}}"
     dest: /etc/default/isc-dhcp-server
   notify:
     - restart dhcpd

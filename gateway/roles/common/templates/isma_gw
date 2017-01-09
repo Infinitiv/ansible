@@ -8,8 +8,8 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-auto enp0s3
-iface enp0s3 inet dhcp
+auto enp4s2
+iface enp4s2 inet dhcp
 
 auto enp0s8
 iface enp0s8 inet static
