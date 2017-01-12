@@ -3,3 +3,4 @@
   service:
     name: networking
     state: restarted
+    enabled: yes

@@ -3,6 +3,8 @@
   apt:
     name: shorewall
     state: present
+- name: Create messages file
+  command: touch /var/log/messages creates=/var/log/messages
 - name: Configure shorewall
   template: 
     src: shorewall.conf

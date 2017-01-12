@@ -1,5 +1,6 @@
 ---
 - name: restart dns
-  service:
+  systemd:
     name: bind9
     state: restarted
+    enabled: yes
