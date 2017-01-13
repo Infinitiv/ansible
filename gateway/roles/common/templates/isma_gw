@@ -8,11 +8,11 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-auto enp4s2
-iface enp4s2 inet dhcp
-
 auto enp5s3
-iface enp5s3 inet static
+iface enp5s3 inet dhcp
+
+auto enp4s2
+iface enp4s2 inet static
 address 192.168.0.1
 netmask 255.255.255.0
 

@@ -1,4 +1,4 @@
-ACCEPT enp5s3 -
-ACCEPT - enp5s3
+ACCEPT enp4s2 -
+ACCEPT - enp4s2
 ACCEPT tun0 -
 ACCEPT - tun0
