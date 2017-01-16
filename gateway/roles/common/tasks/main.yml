@@ -13,3 +13,9 @@
     dest: /etc/network/interfaces
   notify:
     - restart networking
+- name: Configure nameservers
+  template:
+    src: resolv.conf
+    dest: /etc/resolv.conf
+  notify:
+    - restart networking

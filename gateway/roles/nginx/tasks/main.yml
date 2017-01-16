@@ -1,0 +1,19 @@
+---
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+- name: Copy conf files
+  template: src={{item}} dest=/etc/nginx/sites-available/{{item}}
+  with_items:
+    - isma
+    - vestnik-ivgma
+    - priem
+- name: Create links
+  command: ln -s /etc/nginx/sites-available/{{item}} /etc/nginx/sites-enabled/
+  with_items:
+    - isma
+    - vestnik-ivgma
+    - priem
+  notify:
+    - reload nginx

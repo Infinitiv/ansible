@@ -1,0 +1,37 @@
+upstream  isma_upstream {
+	server 10.0.5.250:3004;
+	server 10.0.5.250:3005;
+	server 10.0.5.250:3006;
+	server 10.0.5.250:3007;
+	server 10.0.5.250:3008;
+}
+
+
+proxy_cache_path  /var/tmp/nginx/cache_temp levels=1:2 keys_zone=assets:500m;
+
+
+server {
+	listen		80;
+	server_name	isma.ivanovo.ru www.isma.ivanovo.ru;
+
+	gzip			on;
+	gzip_disable		"msie6";
+	gzip_types		application/x-javascript application/javascript text/css;
+
+	location ^~ /assets/ {
+		proxy_pass		http://isma_upstream;
+		proxy_cache		assets;
+		proxy_cache_valid  200 302  1d;
+		proxy_cache_valid  404      1m;
+	}
+
+	location / {
+		client_max_body_size	100m;
+		proxy_pass		http://isma_upstream;
+		proxy_set_header	Host $host;
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
+		proxy_buffering		off;
+
+	}
+}

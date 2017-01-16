@@ -9,7 +9,10 @@ iface lo inet loopback
 
 # The primary network interface
 auto enp5s3
-iface enp5s3 inet dhcp
+iface enp5s3 inet static
+address 87.255.232.90
+netmask 255.255.255.224
+gateway 87.255.232.94
 
 auto enp4s2
 iface enp4s2 inet static

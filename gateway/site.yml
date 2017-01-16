@@ -13,3 +13,4 @@
     - dns
     - openvpn
     - shorewall
+    - nginx
