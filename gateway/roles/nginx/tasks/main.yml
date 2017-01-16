@@ -10,7 +10,10 @@
     - vestnik-ivgma
     - priem
 - name: Create links
-  command: ln -s /etc/nginx/sites-available/{{item}} /etc/nginx/sites-enabled/
+  file:
+    src: /etc/nginx/sites-available/{{item}} 
+    dest: /etc/nginx/sites-enabled/{{item}}
+    state: link
   with_items:
     - isma
     - vestnik-ivgma

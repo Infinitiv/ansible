@@ -8,9 +8,9 @@
       raw: sudo apt install python-simplejson -y
 
   roles:
-    - common
-    - dhcp
-    - dns
     - openvpn
     - shorewall
     - nginx
+    - dns
+    - dhcp
+    - common
