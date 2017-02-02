@@ -11,9 +11,11 @@ ACCEPT fw loc udp 67:68
 DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
 DNS(ACCEPT) vpn fw
+DNS(ACCEPT) loc net
 #ssh
 SSH(ACCEPT) fw loc
 SSH(ACCEPT) net fw
+SSH(ACCEPT) loc fw
 #ping
 Ping(ACCEPT) loc fw
 Ping(ACCEPT) vpn fw
