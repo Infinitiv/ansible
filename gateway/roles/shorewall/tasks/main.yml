@@ -9,38 +9,56 @@
   template: 
     src: shorewall.conf
     dest: /etc/shorewall/shorewall.conf
+  notify:
+    - restart shorewall
 - name: Configure shorewall zones
   template: 
     src: zones
     dest: /etc/shorewall/zones
+  notify:
+    - restart shorewall
 - name: Configure shorewall interfaces
   template: 
     src: "{{shorewall_interfeces}}"
     dest: /etc/shorewall/interfaces
+  notify:
+    - restart shorewall
 - name: Configure shorewall masq
   template: 
     src: "{{shorewall_masq}}"
     dest: /etc/shorewall/masq
+  notify:
+    - restart shorewall
 - name: Configure shorewall policy
   template: 
     src: policy
     dest: /etc/shorewall/policy
+  notify:
+    - restart shorewall
 - name: Configure shorewall rules
   template: 
     src: rules
     dest: /etc/shorewall/rules
+  notify:
+    - restart shorewall
 - name: Configure shorewall stoppedrules
   template: 
     src: "{{shorewall_stoppedrules}}"
     dest: /etc/shorewall/stoppedrules
+  notify:
+    - restart shorewall
 - name: Configure shorewall tcinterfaces
   template: 
     src: "{{shorewall_tcinterfaces}}"
     dest: /etc/shorewall/tcinterfaces
+  notify:
+    - restart shorewall
 - name: Configure shorewall tcpri
   template: 
     src: tcpri
     dest: /etc/shorewall/tcpri
+  notify:
+    - restart shorewall
 - name: Configure shorewall blrules
   template: 
     src: blrules

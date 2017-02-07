@@ -1,7 +1,17 @@
 options {
+
         directory "/var/cache/bind";
+        listen-on { any; };
         forwarders {
         77.88.8.7;
         77.88.8.3;
+        };
+};
+
+zone "isma.ivanovo.ru" {
+        type master;
+        file "/etc/bind/db.isma.ivanovo.ru";
+        allow-transfer {
+        64.137.245.141;
         };
 };

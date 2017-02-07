@@ -14,7 +14,7 @@ server {
 	gzip_disable		"msie6";
 	gzip_types		application/x-javascript application/javascript text/css;
 
-	location/ {
+	location / {
 		proxy_pass		http://isma_upstream;
 		proxy_set_header	Host $host;
 		proxy_set_header	X-Real-IP	$remote_addr;

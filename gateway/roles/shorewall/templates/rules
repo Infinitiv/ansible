@@ -12,6 +12,7 @@ DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
 DNS(ACCEPT) vpn fw
 DNS(ACCEPT) loc net
+DNS(ACCEPT) net fw
 #ssh
 SSH(ACCEPT) fw loc
 SSH(ACCEPT) net fw
@@ -32,6 +33,8 @@ NTP(ACCEPT) vpn fw
 HTTP(ACCEPT) fw net
 HTTP(ACCEPT) loc net
 HTTP(ACCEPT) vpn net
+HTTP(ACCEPT) net fw
+HTTP(ACCEPT) loc fw
 HTTPS(ACCEPT) fw net
 HTTPS(ACCEPT) loc net
 HTTPS(ACCEPT) vpn net

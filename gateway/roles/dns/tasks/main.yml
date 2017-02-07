@@ -3,9 +3,15 @@
   apt:
     name: bind9
     state: present
-- name: Configure dns
+- name: Configure bind9
   template:
     src: named.conf.options
     dest: /etc/bind/named.conf.options
+  notify:
+    - restart dns
+- name: Configure zone
+  template:
+    src: db.isma.ivanovo.ru
+    dest: /etc/bind/db.isma.ivanovo.ru
   notify:
     - restart dns
