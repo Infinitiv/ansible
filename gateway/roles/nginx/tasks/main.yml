@@ -9,6 +9,7 @@
     - isma
     - vestnik-ivgma
     - priem
+    - irbis64
 - name: Create links
   file:
     src: /etc/nginx/sites-available/{{item}} 
@@ -18,5 +19,6 @@
     - isma
     - vestnik-ivgma
     - priem
+    - irbis64
   notify:
     - reload nginx
