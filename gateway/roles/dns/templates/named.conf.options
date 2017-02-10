@@ -13,7 +13,8 @@ zone "isma.ivanovo.ru" {
         allow-transfer {
         64.137.245.141;
         };
-        
+};
+
 zone "vestnik-ivgma.ru" {
         type master;
         file "/etc/bind/db.vestnik-ivgma.ru";
