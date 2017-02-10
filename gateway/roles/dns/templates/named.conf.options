@@ -1,5 +1,4 @@
 options {
-
         directory "/var/cache/bind";
         listen-on { any; };
         forwarders {
@@ -11,6 +10,13 @@ options {
 zone "isma.ivanovo.ru" {
         type master;
         file "/etc/bind/db.isma.ivanovo.ru";
+        allow-transfer {
+        64.137.245.141;
+        };
+        
+zone "vestnik-ivgma.ru" {
+        type master;
+        file "/etc/bind/db.vestnik-ivgma.ru";
         allow-transfer {
         64.137.245.141;
         };

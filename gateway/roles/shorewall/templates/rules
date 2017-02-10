@@ -40,3 +40,6 @@ HTTPS(ACCEPT) loc net
 HTTPS(ACCEPT) vpn net
 #openvpn
 ACCEPT loc fw udp 1194
+#web-servers
+ACCEPT loc:10.0.5.0/24 fw tcp 3000:3010
+ACCEPT fw loc:10.0.5.0/24 tcp 3000:3010
