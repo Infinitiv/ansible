@@ -43,6 +43,8 @@ ACCEPT loc fw udp 1194
 #web-servers
 ACCEPT loc:10.0.5.0/24 fw tcp 3000:3010
 ACCEPT fw loc:10.0.5.0/24 tcp 3000:3010
+ACCEPT loc:192.168.45.5 fw tcp 8080
+ACCEPT fw loc:192.168.45.5 tcp 8080
 #webinar.ru
 ACCEPT loc net tcp 1935
 ACCEPT net loc tcp 1935
