@@ -48,3 +48,6 @@ ACCEPT fw loc:192.168.45.5 tcp 8080
 #webinar.ru
 ACCEPT loc net tcp 1935
 ACCEPT net loc tcp 1935
+#smb share
+ACCEPT loc loc:10.0.5.192 tcp 445
+ACCEPT loc:10.0.5.192 loc tcp 445
