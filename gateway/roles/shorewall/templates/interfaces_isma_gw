@@ -1,4 +1,4 @@
 ?FORMAT 2
 net enp5s3 dhcp,tcpflags,nosmurfs,routefilter,logmartians,sourceroute=0
-loc enp4s2 dhcp,tcpflags,nosmurfs,routefilter,logmartians
+loc enp4s2 dhcp,tcpflags,nosmurfs,routefilter,logmartians,routeback
 vpn tun0 dhcp,tcpflags,nosmurfs,routefilter,logmartians
