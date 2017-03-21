@@ -1,17 +1,17 @@
 options {
         directory "/var/cache/bind";
         listen-on { any; };
-        forwarders { 77.88.8.7; 77.88.8.3; };
+        forwarders { {{ya_ns1}}; {{ya_ns2}}; };
 };
 
 zone "isma.ivanovo.ru" {
         type master;
         file "/etc/bind/db.isma.ivanovo.ru";
-        allow-transfer { 64.137.245.141; };
+        allow-transfer { {{isma_ns_slave}}; };
 };
 
 zone "vestnik-ivgma.ru" {
         type master;
         file "/etc/bind/db.vestnik-ivgma.ru";
-        allow-transfer { 64.137.245.141; };
+        allow-transfer { {{isma_ns_slave}}; };
 };

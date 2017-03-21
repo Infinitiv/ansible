@@ -8,6 +8,9 @@ lxc_subnet: 10.0.5.0/24
 lxc_host: 192.168.45.7
 ns1: 87.255.238.65
 ns2: 87.255.238.75
+ya_ns1: 77.88.8.3
+ya_ns2: 77.88.8.7
+isma_ns_slave: 64.137.245.141
 
 dhcp_default_interface: default_interface_loc_gw
 
