@@ -1,4 +1,0 @@
-?FORMAT 2
-net enp0s3 dhcp,tcpflags,nosmurfs,routefilter,logmartians,sourceroute=0
-loc enp0s8 dhcp,tcpflags,nosmurfs,routefilter,logmartians
-vpn tun0 dhcp,tcpflags,nosmurfs,routefilter,logmartians

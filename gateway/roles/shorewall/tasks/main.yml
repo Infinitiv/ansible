@@ -21,7 +21,7 @@
     - restart shorewall
 - name: Configure shorewall interfaces
   template: 
-    src: "{{shorewall_interfeces}}"
+    src: interfaces
     dest: /etc/shorewall/interfaces
   notify:
     - restart shorewall
