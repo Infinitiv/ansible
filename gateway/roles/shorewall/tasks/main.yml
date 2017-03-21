@@ -4,7 +4,9 @@
     name: shorewall
     state: present
 - name: Create messages file
-  command: touch /var/log/messages creates=/var/log/messages
+  file: 
+    path: /var/log/messages
+    state: touch
 - name: Configure shorewall
   template: 
     src: shorewall.conf
