@@ -1,7 +1,23 @@
-common_interfaces: isma_gw
-dhcp_default_interface: default_interface_isma_gw
-shorewall_stoppedrules: stoppedrules_isma_gw
-shorewall_interfeces: interfaces_isma_gw
-shorewall_masq: masq_isma_gw
-shorewall_tcinterfaces: tcinterfaces_isma_gw
+external_interface: enp5s3
+external_address: 87.255.238.90
+external_netmask: 255.255.255.0
+external_gateway: 87.255.238.94
+internal_interface: enp4s2
+internal_address: 192.168.45.1
+internal_netmask: 255.255.255.0
+lxc_subnet: 10.0.5.0/24
+lxc_host: 192.168.45.7
+
+ns1: 87.255.238.65
+ns2: 87.255.238.75
+
+ya_ns1: 77.88.8.3
+ya_ns2: 77.88.8.7
+
+isma_ns_slave: 64.137.245.141
+
+openvpn_interface: tun0
+
+internal_subnet: 192.168.45.0/24
+openvpn_subnet: 10.8.0.0/24
 
