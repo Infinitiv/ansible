@@ -27,7 +27,7 @@
     - restart shorewall
 - name: Configure shorewall masq
   template: 
-    src: "{{shorewall_masq}}"
+    src: masq
     dest: /etc/shorewall/masq
   notify:
     - restart shorewall
