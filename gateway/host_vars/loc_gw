@@ -1,6 +1,7 @@
 external_interface: enp0s3
-external_address: 80.70.101.1
+external_address: 192.168.0.230
 external_netmask: 255.255.255.0
+external_gateway: 192.168.0.1
 internal_interface: enp0s8
 internal_address: 192.168.45.1
 internal_netmask: 255.255.255.0

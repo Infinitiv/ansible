@@ -12,6 +12,7 @@ auto {{external_interface}}
 iface {{external_interface}} inet static
 address {{external_address}}
 netmask {{external_netmask}}
+gateway {{external_gateway}}
 dns-nameservers {{ns1}} {{ns2}}
 
 auto {{internal_interface}}
