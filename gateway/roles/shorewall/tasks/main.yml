@@ -51,7 +51,7 @@
     - restart shorewall
 - name: Configure shorewall tcinterfaces
   template: 
-    src: "{{shorewall_tcinterfaces}}"
+    src: tcinterfaces
     dest: /etc/shorewall/tcinterfaces
   notify:
     - restart shorewall
