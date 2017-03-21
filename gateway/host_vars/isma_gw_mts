@@ -1,0 +1,7 @@
+common_interfaces: isma_gw
+dhcp_default_interface: default_interface_isma_gw
+shorewall_stoppedrules: stoppedrules_isma_gw
+shorewall_interfeces: interfaces_isma_gw
+shorewall_masq: masq_isma_gw
+shorewall_tcinterfaces: tcinterfaces_isma_gw
+

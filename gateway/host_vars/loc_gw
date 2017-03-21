@@ -1,3 +1,12 @@
+external_interface: enp0s3
+external_address: 80.70.101.1
+external_netmask: 255.255.255.0
+internal_interface: enp0s8
+internal_address: 192.168.45.1
+internal_netmask: 255.255.255.0
+lxc_subnet: 10.0.5.0/24
+lxc_host: 192.168.45.7
+
 common_interfaces: loc_gw
 dhcp_default_interface: default_interface_loc_gw
 shorewall_stoppedrules: stoppedrules_loc_gw

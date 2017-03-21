@@ -9,7 +9,7 @@
     - ntp
 - name: Configure interfaces
   template:
-    src: "{{common_interfaces}}"
+    src: interfaces
     dest: /etc/network/interfaces
   notify:
     - restart networking
