@@ -45,7 +45,7 @@
     - restart shorewall
 - name: Configure shorewall stoppedrules
   template: 
-    src: "{{shorewall_stoppedrules}}"
+    src: stoppedrules
     dest: /etc/shorewall/stoppedrules
   notify:
     - restart shorewall

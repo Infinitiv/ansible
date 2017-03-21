@@ -1,0 +1,4 @@
+ACCEPT {{internal_interface}} -
+ACCEPT - {{internal_interface}}
+ACCEPT {{openvpn_interface}} -
+ACCEPT - {{openvpn_interface}}
