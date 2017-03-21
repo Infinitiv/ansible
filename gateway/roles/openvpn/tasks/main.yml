@@ -11,13 +11,7 @@
     - dh2048.pem
     - server.crt
     - server.key
-- name: Create ta.key
-  command: openvpn --genkey --secret /etc/openvpn/ta.key creates=/etc/openvpn/ta.key
-- name: Fethc ta.key
-  fetch:
-    src: /etc/openvpn/ta.key
-    dest: /home/markovnin/openvpn/openvpn-ca/keys/ta.key
-    flat: yes
+    - ta.key
 - name: Configure openvpn
   template:
     src: server.conf
