@@ -1,4 +1,0 @@
-ACCEPT enp4s2 -
-ACCEPT - enp4s2
-ACCEPT tun0 -
-ACCEPT - tun0
