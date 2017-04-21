@@ -1,1 +1,1 @@
-enp0s3 {{internal_subnet}},{{openvpn_subnet}}
+{{external_interface}} {{internal_subnet}},{{openvpn_subnet}}
