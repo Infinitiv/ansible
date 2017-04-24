@@ -1,5 +1,5 @@
 ---
-- hosts: isma_gw_mts
+- hosts: isma_gw
   become: yes
   become_method: sudo
   gather_facts: no

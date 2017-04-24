@@ -1,7 +1,7 @@
 external_interface: enp5s3
-external_address: 87.255.238.90
+external_address: 87.255.232.90
 external_netmask: 255.255.255.0
-external_gateway: 87.255.238.94
+external_gateway: 87.255.232.94
 internal_interface: enp4s2
 internal_address: 192.168.45.1
 internal_netmask: 255.255.255.0
