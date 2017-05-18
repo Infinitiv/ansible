@@ -1,0 +1,13 @@
+---
+- name: Install packages
+  apt: name={{item}} state=present
+  with_items:
+    - ruby
+    - ruby-dev
+    - nodejs
+    - git
+    - build-essential
+    - patch
+    - zlib1g-dev
+    - liblzma-dev
+    - libpq-dev

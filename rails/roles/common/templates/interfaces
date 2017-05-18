@@ -1,0 +1,24 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto {{external_interface}}
+iface {{external_interface}} inet static
+address {{external_address}}
+netmask {{external_netmask}}
+gateway {{external_gateway}}
+dns-nameservers {{ns1}} {{ns2}}
+
+auto {{internal_interface}}
+iface {{internal_interface}} inet static
+address {{internal_address}}
+netmask {{internal_netmask}}
+
+# static routes
+up ip ro add {{lxc_subnet}} via {{lxc_host}}

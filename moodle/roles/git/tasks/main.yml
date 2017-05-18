@@ -1,0 +1,25 @@
+---
+- name: Install packages
+  apt: name={{item}} state=present
+  with_items:
+    - git
+- name: Fetch moodle
+  git: 
+    repo: git://git.moodle.org/moodle.git
+    dest: /var/www/moodle
+    clone: no
+  notify:
+    - restart apache2
+#- name: set branch
+  #command: git branch -a chdir=/var/www/moodle
+  #notify:
+    #- restart apache2
+#- name: track branch
+  #command: git branch --track MOODLE_33_STABLE origin/MOODLE_33_STABLE chdir=/var/www/moodle
+  #notify:
+    #- restart apache2
+#- name: checkout branch
+  #command: git checkout MOODLE_33_STABLE chdir=/var/www/moodle
+  #notify:
+    #- restart apache2
+  

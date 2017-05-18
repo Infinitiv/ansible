@@ -1,6 +1,6 @@
 $ORIGIN isma.ivanovo.ru.
 $TTL 3600
-@       IN      SOA     ns it ( 20170211 10800 3600 604800 86400 )
+@       IN      SOA     ns it ( 20170517 10800 3600 604800 86400 )
 @       IN      A       87.255.232.90
 @       IN      NS      ns
 @       IN      NS      ns2
@@ -17,3 +17,4 @@ ns      IN      A       87.255.232.90
 ns2     IN      A       64.137.245.141
 mail    IN      CNAME   gmail.com.
 irbis64 IN      A       87.255.232.90
+moodle  IN      A       87.255.232.90

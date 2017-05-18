@@ -1,0 +1,14 @@
+---
+- hosts: moodle
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  pre_tasks:
+    - name: Install python
+      raw: sudo apt install python-simplejson -y
+
+  roles:
+    - common
+    - php
+    - apache2
+    - git

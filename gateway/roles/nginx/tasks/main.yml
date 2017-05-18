@@ -10,6 +10,7 @@
     - vestnik-ivgma
     - priem
     - irbis64
+    - moodle
 - name: Create links
   file:
     src: /etc/nginx/sites-available/{{item}} 
@@ -20,5 +21,6 @@
     - vestnik-ivgma
     - priem
     - irbis64
+    - moodle
   notify:
     - reload nginx

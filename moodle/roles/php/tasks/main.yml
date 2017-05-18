@@ -1,0 +1,26 @@
+---
+- name: Install packages
+  apt: name={{item}} state=present
+  with_items:
+    - php
+    - php-iconv
+    - php-mbstring
+    - php-curl
+    - php-tokenizer
+    - php-xmlrpc
+    - php-soap
+    - php-ctype
+    - php-zip
+    - php-gd
+    - php-simplexml
+    - php-dom
+    - php-xml
+    - php-intl
+    - php-json
+    - php-pgsql
+- name: Configure PHP
+  template:
+    src: php.ini
+    dest: /etc/php/7.0/cli/php.ini
+  notify:
+    - restart apache2
