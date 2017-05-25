@@ -1,0 +1,5 @@
+options {
+        directory "/var/cache/bind";
+        listen-on { any; };
+        forwarders { {{ya_ns1}}; {{ya_ns2}}; };
+};

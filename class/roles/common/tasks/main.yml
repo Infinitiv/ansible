@@ -1,0 +1,25 @@
+---
+- name: install packages
+  apt: name={{item}} state=present
+  with_items:
+    - curl
+    - mc
+    - ntp
+    - vim
+    - wine
+    - vlc
+    - p7zip-full
+    - p7zip-rar
+    - libreoffice
+    - dosbox
+    - dosemu
+    - krusader
+    - firefox
+    - ttf-mscorefonts-installer
+- name: configure interfaces
+  template:
+    src: interfaces
+    dest: /etc/network/interfaces
+  notify:
+    - restart networking
+  
