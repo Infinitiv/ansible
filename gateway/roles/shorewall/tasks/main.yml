@@ -17,6 +17,10 @@
   template: 
     src: zones
     dest: /etc/shorewall/zones
+- name: Configure shorewall providers
+  template: 
+    src: providers
+    dest: /etc/shorewall/providers
   notify:
     - restart shorewall
 - name: Configure shorewall interfaces

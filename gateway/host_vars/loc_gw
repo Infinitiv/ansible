@@ -2,14 +2,29 @@ external_interface: enp0s3
 external_address: 192.168.0.230
 external_netmask: 255.255.255.0
 external_gateway: 192.168.0.1
+
 internal_interface: enp0s8
 internal_address: 192.168.45.1
 internal_netmask: 255.255.255.0
+
+intercomtel_interface: enp0s9
+intercomtel_address: 87.255.232.90
+intercomtel_netmask: 255.255.255.0
+intercomtel_gateway: 87.255.232.94
+
+mts_interface: enp0s10
+mts_address: 80.70.101.250
+mts_netmask: 255.255.255.252
+mts_gateway: 80.70.101.249
+
 lxc_subnet: 10.0.5.0/24
 lxc_host: 192.168.45.7
 
-ns1: 77.88.8.3
-ns2: 77.88.8.7
+intercomtel_ns1: 87.255.238.65
+intercomtel_ns2: 87.255.238.75
+
+mts_ns1: 80.70.96.137
+mts_ns2: 80.70.96.130
 
 ya_ns1: 77.88.8.3
 ya_ns2: 77.88.8.7

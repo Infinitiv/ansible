@@ -10,7 +10,7 @@ ACCEPT fw loc udp 67:68
 #dns
 DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
-DNS(ACCEPT) vpn fw
+#DNS(ACCEPT) vpn fw
 DNS(ACCEPT) loc net
 DNS(ACCEPT) net fw
 #ssh
@@ -19,25 +19,25 @@ SSH(ACCEPT) net fw
 SSH(ACCEPT) loc fw
 #ping
 Ping(ACCEPT) loc fw
-Ping(ACCEPT) vpn fw
+#Ping(ACCEPT) vpn fw
 Ping(DROP) net fw
 #icmp
 ACCEPT fw loc icmp
 ACCEPT fw net icmp
-ACCEPT fw vpn icmp
+#ACCEPT fw vpn icmp
 #ntp
 NTP(ACCEPT) fw net
 NTP(ACCEPT) loc fw
-NTP(ACCEPT) vpn fw
+#NTP(ACCEPT) vpn fw
 #http/https
 HTTP(ACCEPT) fw net
 HTTP(ACCEPT) loc net
-HTTP(ACCEPT) vpn net
+#HTTP(ACCEPT) vpn net
 HTTP(ACCEPT) net fw
 HTTP(ACCEPT) loc fw
 HTTPS(ACCEPT) fw net
 HTTPS(ACCEPT) loc net
-HTTPS(ACCEPT) vpn net
+#HTTPS(ACCEPT) vpn net
 #openvpn
 ACCEPT loc fw udp 1194
 #web-servers

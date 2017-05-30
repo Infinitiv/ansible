@@ -1,1 +1,2 @@
-{{external_interface}} {{internal_subnet}},{{openvpn_subnet}}
+{{intercomtel_interface}} {{internal_subnet}}
+{{mts_interface}} {{internal_subnet}}

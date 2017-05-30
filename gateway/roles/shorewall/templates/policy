@@ -1,4 +1,5 @@
+net net DROP
 loc net ACCEPT
-vpn net ACCEPT
+#vpn net ACCEPT
 net all DROP info
 all all REJECT info

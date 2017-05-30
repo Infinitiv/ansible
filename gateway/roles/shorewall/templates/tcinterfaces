@@ -1,2 +1,2 @@
-#{{external_interface}} External 50mbit
+#{{intercomtel_interface}} External 50mbit
 #{{internal_interface}} Internal 50mbit
