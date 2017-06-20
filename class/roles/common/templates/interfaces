@@ -18,4 +18,4 @@ wpa-proto RSN
 wpa-pairwise CCMP
 wpa-group CCMP
 wpa-key-mgmt WPA-PSK
-wpa-psk 6dfadc329b72adc766e376eb391af6f0d8b40d420719ae398d9cfaf95d53b95b
+wpa-psk 5d10c7a1720d2dee7c8784c0dfab1381a16aa1dad0cbc10611aff16009c06b78

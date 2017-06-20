@@ -1,0 +1,17 @@
+---
+- name: install corefonts
+  shell: winetricks corefonts
+- name: copy files
+  copy: src={{item}} dest=~/Загрузки/{{item}}
+  with_items:
+    - PowerPointViewer.exe
+    - MyTestXSetup.exe
+  become: yes
+  become_user: user 
+- name: install wine programs
+  command: wine ~/Загрузки/{{item}} /S
+  with_items:
+    - PowerPointViewer.exe
+    #- MyTestXSetup.exe
+  become: yes
+  become_user: user

@@ -10,7 +10,7 @@
     - vestnik-ivgma
     - priem
     - irbis64
-    - moodle
+    - moodles
 - name: Create links
   file:
     src: /etc/nginx/sites-available/{{item}} 

@@ -1,4 +1,13 @@
 ---
+- name: Set authorized key took from file
+  authorized_key:
+    user: user
+    state: present
+    key: "{{ lookup('file', '/home/markovnin/.ssh/id_rsa.pub') }}"
+- name: update & upgrade
+  apt:
+    update_cache: yes
+    upgrade: full
 - name: install packages
   apt: name={{item}} state=present
   with_items:
@@ -13,7 +22,6 @@
     - libreoffice
     - dosbox
     - dosemu
-    - krusader
     - firefox
     - ttf-mscorefonts-installer
 - name: configure interfaces

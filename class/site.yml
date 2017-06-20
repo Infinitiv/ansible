@@ -5,8 +5,10 @@
   become_method: sudo
   gather_facts: no
   pre_tasks:
-    - name: Install python
-      raw: sudo apt install python-simplejson -y
+    - name: Install python & aptitude
+      raw: sudo apt install python-simplejson aptitude -y
 
   roles:
     - common
+    - gsettings
+    - wine
