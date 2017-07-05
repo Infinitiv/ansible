@@ -19,5 +19,9 @@
   template:
     src: db.vestnik-ivgma.ru
     dest: /etc/bind/db.vestnik-ivgma.ru
+- name: Configure zone lib-isma
+  template:
+    src: db.vestnik-ivgma.ru
+    dest: /etc/bind/db.lib-isma.ru
   notify:
     - restart dns
