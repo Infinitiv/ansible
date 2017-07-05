@@ -50,3 +50,8 @@ ACCEPT loc net tcp 1935
 ACCEPT net loc tcp 1935
 #RDP to library
 #DNAT net loc:192.168.45.5 tcp 3389
+#Video
+ACCEPT loc net tcp 5060:5061
+ACCEPT net loc tcp 5060:5061
+ACCEPT loc net udp 21000:21999,54000:54999
+ACCEPT net loc udp 21000:21999,54000:54999
