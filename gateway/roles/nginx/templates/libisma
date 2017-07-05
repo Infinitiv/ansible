@@ -1,6 +1,6 @@
 server {
 	listen		80;
-	server_name	lib-isma.ru www.lib-isma.ru;
+	server_name	lib-isma.ru www.libisma.ru;
 
 	location / {
 		client_max_body_size	100m;

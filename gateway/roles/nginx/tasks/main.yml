@@ -11,7 +11,7 @@
     - priem
     - irbis64
     - moodles
-    - lib-isma
+    - libisma
 - name: Create links
   file:
     src: /etc/nginx/sites-available/{{item}} 
@@ -23,6 +23,6 @@
     - priem
     - irbis64
     - moodle
-    - lib-isma
+    - libisma
   notify:
     - reload nginx
