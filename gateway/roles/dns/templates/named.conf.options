@@ -15,3 +15,9 @@ zone "vestnik-ivgma.ru" {
         file "/etc/bind/db.vestnik-ivgma.ru";
         allow-transfer { {{isma_ns_slave}}; };
 };
+
+zone "lib-isma.ru" {
+        type master;
+        file "/etc/bind/db.lib-isma.ru";
+        allow-transfer { {{isma_ns_slave}}; };
+};
