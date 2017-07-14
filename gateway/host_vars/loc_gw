@@ -31,7 +31,4 @@ ya_ns2: 77.88.8.7
 
 isma_ns_slave: 64.137.245.141
 
-openvpn_interface: tun0
-
 internal_subnet: 192.168.45.0/24
-openvpn_subnet: 10.8.0.0/24

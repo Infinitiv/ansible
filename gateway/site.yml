@@ -1,5 +1,5 @@
 ---
-- hosts: loc_gw
+- hosts: isma_gw
   become: yes
   become_method: sudo
   gather_facts: no
@@ -8,7 +8,6 @@
       raw: sudo apt install python-simplejson -y
 
   roles:
-    #- openvpn
     - shorewall
     - nginx
     - dns

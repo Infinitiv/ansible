@@ -17,12 +17,6 @@
   template: 
     src: zones
     dest: /etc/shorewall/zones
-- name: Configure shorewall providers
-  template: 
-    src: providers
-    dest: /etc/shorewall/providers
-  notify:
-    - restart shorewall
 - name: Configure shorewall interfaces
   template: 
     src: interfaces
@@ -51,18 +45,6 @@
   template: 
     src: stoppedrules
     dest: /etc/shorewall/stoppedrules
-  notify:
-    - restart shorewall
-- name: Configure shorewall tcinterfaces
-  template: 
-    src: tcinterfaces
-    dest: /etc/shorewall/tcinterfaces
-  notify:
-    - restart shorewall
-- name: Configure shorewall tcpri
-  template: 
-    src: tcpri
-    dest: /etc/shorewall/tcpri
   notify:
     - restart shorewall
 - name: Configure shorewall blrules

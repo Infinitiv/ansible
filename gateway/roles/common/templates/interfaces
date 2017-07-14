@@ -8,26 +8,13 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-#auto {{external_interface}}
-#iface {{external_interface}} inet static
-#address {{external_address}}
-#netmask {{external_netmask}}
-#gateway {{external_gateway}}
+auto {{external_interface}}
+iface {{external_interface}} inet static
+address {{external_address}}
+netmask {{external_netmask}}
+gateway {{external_gateway}}
 
-auto {{intercomtel_interface}}
-iface {{intercomtel_interface}} inet static
-address {{intercomtel_address}}
-netmask {{intercomtel_netmask}}
-gateway {{intercomtel_gateway}}
-metric 100
-
-auto {{mts_interface}}
-iface {{mts_interface}} inet static
-address {{mts_address}}
-netmask {{mts_netmask}}
-gateway {{mts_gateway}}
-metric 200
-
+# The secondary network interface
 auto {{internal_interface}}
 iface {{internal_interface}} inet static
 address {{internal_address}}

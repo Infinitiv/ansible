@@ -1,2 +1,1 @@
-{{intercomtel_interface}} {{internal_subnet}}
-{{mts_interface}} {{internal_subnet}}
+{{external_interface}} {{internal_subnet}}

@@ -1,4 +1,3 @@
 fw firewall
 net ipv4
 loc ipv4
-#vpn ipv4

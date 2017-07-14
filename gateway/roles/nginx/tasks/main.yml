@@ -10,7 +10,7 @@
     - vestnik-ivgma
     - priem
     - irbis64
-    - moodles
+    - moodle
     - libisma
 - name: Create links
   file:

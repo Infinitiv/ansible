@@ -1,2 +1,0 @@
-intercomtel 1 1 - {{intercomtel_interface}} {{intercomtel_gateway}} track,balance=1
-mts 2 2 - {{mts_interface}} {{mts_gateway}} track,balance=2
