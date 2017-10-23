@@ -15,7 +15,7 @@
     - mc
     - ntp
     - vim
-    - wine
+    - wine-stable
     - vlc
     - p7zip-full
     - p7zip-rar
@@ -24,10 +24,10 @@
     - dosemu
     - firefox
     - ttf-mscorefonts-installer
-- name: configure interfaces
-  template:
-    src: interfaces
-    dest: /etc/network/interfaces
-  notify:
-    - restart networking
+#- name: configure interfaces
+  #template:
+    #src: interfaces
+    #dest: /etc/network/interfaces
+  #notify:
+    #- restart networking
   

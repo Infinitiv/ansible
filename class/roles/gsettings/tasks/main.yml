@@ -4,7 +4,7 @@
 - name: set params
   command: dbus-launch gsettings set {{item}}
   with_items:
-    - "org.gnome.shell favorite-apps ['ubiquity.desktop', 'firefox.desktop', 'libreoffice-writer.desktop', 'libreoffice-calc.desktop', 'org.gnome.Nautilus.desktop', 'MyTestStudent.desktop']"
-    - "org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/wallpaper.jpg'"
+    - org.gnome.shell favorite-apps "['ubiquity.desktop', 'firefox.desktop', 'libreoffice-writer.desktop', 'libreoffice-calc.desktop', 'org.gnome.Nautilus.desktop', 'MyTestStudent.desktop']"
+    - org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/wallpaper.jpg"
   become: yes
   become_user: user
