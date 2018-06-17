@@ -18,3 +18,5 @@ ns2     IN      A       64.137.245.141
 mail    IN      CNAME   gmail.com.
 irbis64 IN      A       87.255.232.90
 moodle  IN      A       87.255.232.90
+priem	IN	A	87.255.232.90
+
