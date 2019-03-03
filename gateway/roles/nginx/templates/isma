@@ -1,9 +1,9 @@
 upstream  isma_upstream {
-	server 10.0.5.250:3004;
-	server 10.0.5.250:3005;
-	server 10.0.5.250:3006;
-	server 10.0.5.250:3007;
-	server 10.0.5.250:3008;
+	server 10.0.5.122:3004;
+	server 10.0.5.122:3005;
+	server 10.0.5.122:3006;
+	server 10.0.5.122:3007;
+	server 10.0.5.122:3008;
 }
 
 server {

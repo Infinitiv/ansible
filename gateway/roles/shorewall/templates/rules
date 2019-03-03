@@ -37,13 +37,20 @@ HTTPS(ACCEPT) loc fw
 #web-servers
 ACCEPT loc:10.0.5.0/24 fw tcp 3000:3010,8080
 ACCEPT fw loc:10.0.5.0/24 tcp 3000:3010,8080
-ACCEPT loc:192.168.45.5 fw tcp 8080
-ACCEPT fw loc:192.168.45.5 tcp 8080
+ACCEPT loc:192.168.45.5 fw tcp 80
+ACCEPT fw loc:192.168.45.5 tcp 80
+ACCEPT loc:192.168.45.2 fw tcp 3000
+ACCEPT fw loc:192.168.45.2 tcp 3000
+ACCEPT loc:10.0.5.129 fw tcp 3838
+ACCEPT fw loc:10.0.5.129 tcp 3838
 #webinar.ru
 ACCEPT loc net tcp 1935
 ACCEPT net loc tcp 1935
-#RDP to library
+#RDP
+#DNAT net loc:192.168.45.3 tcp 3389
+DNAT net loc:192.168.45.4:3389 tcp 3390
 #DNAT net loc:192.168.45.5 tcp 3389
+DNAT net loc:192.168.45.47 tcp 3389
 #Video
 ACCEPT loc net tcp 5060:5061
 ACCEPT net loc tcp 5060:5061
