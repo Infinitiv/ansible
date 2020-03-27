@@ -1,0 +1,11 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    {{external_interface}}:
+      dhcp4: true
+    {{internal_interface}}:
+      addresses:
+        - {{internal_address}}
+      nameservers:
+        addresses: [{{ya_ns1}}, {{ya_ns2}}]

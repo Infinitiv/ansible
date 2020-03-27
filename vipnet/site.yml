@@ -1,0 +1,36 @@
+---
+- hosts: gateways
+  remote_user: user
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  pre_tasks:
+    - name: Install python
+      raw: sudo apt install python-simplejson -y
+    - name: Remove netconfig
+      file:
+        path: /etc/netplan/01-netcfg.yaml
+        state: absent
+  roles:
+    #- shorewall
+    - dhcp
+    - apt
+    - network
+#- hosts: vipnets
+  #become: yes
+  #become_method: sudo
+  #gather_facts: no
+  #pre_tasks:
+    #- name: Install python
+      #raw: sudo apt install python-simplejson -y
+  #roles:
+    #- apt
+#- hosts: clients
+  #become: yes
+  #become_method: sudo
+  #gather_facts: no
+  #pre_tasks:
+    #- name: Install python
+      #raw: sudo apt install python-simplejson -y
+  #roles:
+    #- apt

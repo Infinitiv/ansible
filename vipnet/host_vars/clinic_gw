@@ -1,0 +1,13 @@
+external_interface: enp0s3
+
+internal_interface: enp0s8
+internal_address: 192.168.45.1/24
+internal_netmask: 255.255.255.0
+
+vipnet_subnet: 10.41.19.0/24
+vipnet_host: 192.168.45.2
+
+ya_ns1: 77.88.8.3
+ya_ns2: 77.88.8.7
+
+internal_subnet: 192.168.45.0/24

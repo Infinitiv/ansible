@@ -1,0 +1,7 @@
+---
+- name: Configure interfaces
+  template:
+    src: interfaces.yaml
+    dest: /etc/netplan/interfaces.yaml
+  notify:
+    - restart networking

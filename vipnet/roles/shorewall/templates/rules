@@ -1,0 +1,58 @@
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+#dhcp
+ACCEPT loc fw udp 67:68
+ACCEPT fw loc udp 67:68
+#dns
+DNS(ACCEPT) loc fw
+DNS(ACCEPT) fw net
+DNS(ACCEPT) loc net
+DNS(ACCEPT) net fw
+#ssh
+SSH(ACCEPT) fw loc
+SSH(ACCEPT) net fw
+SSH(ACCEPT) loc fw
+#ping
+Ping(ACCEPT) loc fw
+Ping(DROP) net fw
+#icmp
+ACCEPT fw loc icmp
+ACCEPT fw net icmp
+#ntp
+NTP(ACCEPT) fw net
+NTP(ACCEPT) loc fw
+#http/https
+HTTP(ACCEPT) fw net
+HTTP(ACCEPT) loc net
+HTTP(ACCEPT) net fw
+HTTP(ACCEPT) loc fw
+HTTPS(ACCEPT) fw net
+HTTPS(ACCEPT) loc net
+HTTPS(ACCEPT) net fw
+HTTPS(ACCEPT) loc fw
+#web-servers
+ACCEPT loc:10.0.5.0/24 fw tcp 3000:3010,8080
+ACCEPT fw loc:10.0.5.0/24 tcp 3000:3010,8080
+ACCEPT loc:192.168.45.5 fw tcp 80
+ACCEPT fw loc:192.168.45.5 tcp 80
+ACCEPT loc:192.168.45.2 fw tcp 3000
+ACCEPT fw loc:192.168.45.2 tcp 3000
+ACCEPT loc:10.0.5.129 fw tcp 3838
+ACCEPT fw loc:10.0.5.129 tcp 3838
+#webinar.ru
+ACCEPT loc net tcp 1935
+ACCEPT net loc tcp 1935
+#RDP
+#DNAT net loc:192.168.45.3 tcp 3389
+DNAT net loc:192.168.45.4:3389 tcp 3390
+#DNAT net loc:192.168.45.5 tcp 3389
+DNAT net loc:192.168.45.47 tcp 3389
+#Video
+ACCEPT loc net tcp 5060:5061
+ACCEPT net loc tcp 5060:5061
+ACCEPT loc net udp 21000:21999,54000:54999
+ACCEPT net loc udp 21000:21999,54000:54999

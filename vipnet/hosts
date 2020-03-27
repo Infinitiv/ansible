@@ -1,0 +1,6 @@
+[gateways]
+clinic_gw
+[clients]
+client
+[vipnets]
+vipnet
