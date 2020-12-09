@@ -1,2 +1,7 @@
-[dev]
-tests
+all:
+  hosts:
+  children:
+    dev:
+      hosts:
+        #tests:
+        isma6_development:

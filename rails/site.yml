@@ -1,5 +1,5 @@
 ---
-- hosts: tests 
+- hosts: dev 
   become: yes
   become_method: sudo
   gather_facts: no
@@ -9,3 +9,4 @@
 
   roles:
     - common
+    #- rails

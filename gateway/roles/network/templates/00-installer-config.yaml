@@ -1,0 +1,18 @@
+network:
+  ethernets:
+    {{external_interface}}:
+      dhcp4: false
+      addresses:
+        - {{external_address}}
+      gateway4: {{external_gateway}}
+      nameservers:
+        addresses: [{{ya_ns1}}, {{ya_ns2}}]
+    {{internal_interface}}:
+      dhcp4: false
+      addresses:
+        - {{internal_address}}
+      routes:
+        - to: {{lxc_subnet}}
+          via: {{lxc_host}}
+  version: 2
+  renderer: networkd

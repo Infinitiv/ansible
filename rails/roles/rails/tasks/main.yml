@@ -1,0 +1,3 @@
+---
+- name: install rails
+  gem: name=rails state=present

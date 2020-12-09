@@ -1,4 +1,6 @@
 ---
+- name: update packages
+  apt: update_cache=yes upgrade=yes autoremove=yes autoclean=yes
 - name: Install packages
   apt: name={{item}} state=present
   with_items:
@@ -10,4 +12,5 @@
     - patch
     - zlib1g-dev
     - liblzma-dev
-    - libpq-dev
+    - libmysqlclient-dev
+    - libssl-dev

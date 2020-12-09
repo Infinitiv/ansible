@@ -1,6 +1,6 @@
 ---
 - name: restart networking
   systemd:
-    name: networking
+    name: networkd-dispatcher
     state: restarted
     enabled: yes

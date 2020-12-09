@@ -1,0 +1,11 @@
+---
+- name: Ugrade
+  apt:
+    upgrade: yes
+    autoremove: yes
+    autoclean: yes
+    update_cache: yes
+- name: Install packages
+  apt: 
+    name: ['curl', 'mc', 'vim', 'htop', 'ntp']
+    state: present

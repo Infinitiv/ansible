@@ -2,3 +2,9 @@
 loc_gw
 isma_gw
 isma_gw_mts
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=user
+ansible_ssh_pass=user
+ansible_sudo_pass=user
