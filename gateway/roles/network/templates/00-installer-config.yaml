@@ -11,6 +11,8 @@ network:
       dhcp4: false
       addresses:
         - {{internal_address}}
+      nameservers:
+        addresses: [{{ya_ns1}}, {{ya_ns2}}]
       routes:
         - to: {{lxc_subnet1}}
           via: {{lxc_host1}}
