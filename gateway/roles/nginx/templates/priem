@@ -1,18 +1,45 @@
+upstream priem_upstream {
+#        server 10.0.5.250:3000;
+#        server 10.0.5.250:3001;
+#        server 10.0.5.250:3002;
+#        server 10.0.5.250:3003;
+#        server 10.0.5.250:3004;
+        server 10.109.147.138:3000;
+        server 10.109.147.138:3001;
+        server 10.109.147.138:3002;
+        server 10.109.147.138:3003;
+        server 10.109.147.138:3004;
+}
 server {
-	listen		80;
-	server_name	priem.isma.ivanovo.ru;
+        listen          80;
+        server_name     priem.isma.ivanovo.ru;
 
 	location / {
+		allow 87.255.232.90;
+		allow 192.168.45.0/24;
+		allow 10.0.5.0/24;
+		allow 109.60.220.232;
+	        deny all;
 		client_max_body_size	100m;
-		proxy_pass		http://10.0.5.131:3002/;
+		proxy_pass		http://priem_upstream;
 		proxy_set_header	Host $host;
 		proxy_set_header	X-Real-IP	$remote_addr;
 		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
 		proxy_buffering         off;
-
-		allow	192.168.45.6;
-		allow	109.60.220.232;
-                allow	37.98.167.88;
-		deny    all;
+		proxy_connect_timeout       600;
+		proxy_send_timeout          600;
+		proxy_read_timeout          600;
+		send_timeout                600;
 	}
+
+
+    	listen 443 ssl; # managed by Certbot
+    	ssl_certificate /etc/letsencrypt/live/priem.isma.ivanovo.ru/fullchain.pem; # managed by Certbot
+    	ssl_certificate_key /etc/letsencrypt/live/priem.isma.ivanovo.ru/privkey.pem; # managed by Certbot
+    	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+	if ($scheme != "https"){
+        return 301 https://$host$request_uri;
+        }
+
 }

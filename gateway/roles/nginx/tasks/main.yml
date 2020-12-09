@@ -9,9 +9,10 @@
     - isma
     - vestnik-ivgma
     - priem
-    - irbis64
     - moodle
+    - irbis64
     - libisma
+    - stat
 - name: Create links
   file:
     src: /etc/nginx/sites-available/{{item}} 
@@ -21,8 +22,9 @@
     - isma
     - vestnik-ivgma
     - priem
-    - irbis64
     - moodle
+    - irbis64
     - libisma
+    - stat
   notify:
     - reload nginx

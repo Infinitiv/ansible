@@ -12,7 +12,10 @@ network:
       addresses:
         - {{internal_address}}
       routes:
-        - to: {{lxc_subnet}}
-          via: {{lxc_host}}
+        - to: {{lxc_subnet1}}
+          via: {{lxc_host1}}
+        - to: {{lxc_subnet2}}
+          via: {{lxc_host2}}
+        - to: {{lxc_subnet3}}
+          via: {{lxc_host3}}
   version: 2
-  renderer: networkd

@@ -2,6 +2,7 @@
 loc_gw
 isma_gw
 isma_gw_mts
+intercomtel
 
 [all:vars]
 ansible_connection=ssh

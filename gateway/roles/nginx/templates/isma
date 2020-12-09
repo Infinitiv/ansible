@@ -1,13 +1,24 @@
 upstream  isma_upstream {
+	server 10.0.5.122:3000;
+	server 10.0.5.122:3001;
+	server 10.0.5.122:3002;
+	server 10.0.5.122:3003;
 	server 10.0.5.122:3004;
-	server 10.0.5.122:3005;
-	server 10.0.5.122:3006;
-	server 10.0.5.122:3007;
-	server 10.0.5.122:3008;
+#        server 10.0.5.122:3005;
+#        server 10.0.5.122:3006;
+#        server 10.0.5.122:3007;
+#        server 10.0.5.122:3008;
+#        server 10.0.5.122:3009;
+
+#	server 10.0.5.250:3004;
+#	server 10.0.5.250:3005;
+#	server 10.0.5.250:3006;
+#	server 10.0.5.250:3007;
+#	server 10.0.5.250:3008;
 }
 
 server {
-	listen		80;
+	listen          80;
 	server_name	isma.ivanovo.ru www.isma.ivanovo.ru;
 
 	gzip			on;
@@ -21,5 +32,15 @@ server {
 		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
 		proxy_buffering         off;
 		client_max_body_size	100m;
+	}
+
+	listen 443 ssl; # managed by Certbot
+	ssl_certificate /etc/letsencrypt/live/isma.ivanovo.ru/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/isma.ivanovo.ru/privkey.pem; # managed by Certbot
+	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+	if ($scheme != "https"){
+	return 301 https://$host$request_uri;
 	}
 }

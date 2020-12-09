@@ -4,6 +4,7 @@ $TTL 3600
 @       IN      A       87.255.232.90
 @       IN      NS      ns
 @       IN      NS      ns2
+@	TXT	MS=D6F0B1A2E98D759157DEDD731574A735ED810C75	3600
 @       MX      10 aspmx.l.google.com.
 @       MX      20 alt1.aspmx.l.google.com.
 @       MX      20 alt2.aspmx.l.google.com.
@@ -18,5 +19,8 @@ ns2     IN      A       64.137.245.141
 mail    IN      CNAME   gmail.com.
 irbis64 IN      A       87.255.232.90
 moodle  IN      A       87.255.232.90
-priem	IN	A	87.255.232.90
-
+priem   IN      A       87.255.232.90
+chat   IN      A       87.255.232.90
+stat IN      A       87.255.232.90
+priem IN      A       87.255.232.90
+intel IN      A       87.255.232.90
