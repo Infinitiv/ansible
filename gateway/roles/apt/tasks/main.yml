@@ -7,5 +7,5 @@
     update_cache: yes
 - name: Install packages
   apt: 
-    name: ['curl', 'mc', 'vim', 'htop', 'ntp', 'cerbot']
+    name: ['curl', 'mc', 'vim', 'htop', 'ntp', 'certbot']
     state: present
