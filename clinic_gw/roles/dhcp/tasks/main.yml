@@ -1,0 +1,17 @@
+---
+- name: Install dhcpd
+  apt:
+    name: isc-dhcp-server
+    state: present
+- name: Configure dhcp
+  template:
+    src: dhcpd.conf
+    dest: /etc/dhcp/dhcpd.conf
+  notify:
+    - restart dhcpd
+- name: Configure default interface
+  template:
+    src: isc-dhcp-server
+    dest: /etc/default/isc-dhcp-server
+  notify:
+    - restart dhcpd

@@ -1,0 +1,55 @@
+---
+- name: Install shorewall
+  apt:
+    name: shorewall
+    state: present
+- name: Create messages file
+  file: 
+    path: /var/log/messages
+    state: touch
+- name: Configure shorewall
+  template: 
+    src: shorewall.conf
+    dest: /etc/shorewall/shorewall.conf
+  notify:
+    - restart shorewall
+- name: Configure shorewall zones
+  template: 
+    src: zones
+    dest: /etc/shorewall/zones
+- name: Configure shorewall interfaces
+  template: 
+    src: interfaces
+    dest: /etc/shorewall/interfaces
+  notify:
+    - restart shorewall
+- name: Configure shorewall masq
+  template: 
+    src: masq
+    dest: /etc/shorewall/masq
+  notify:
+    - restart shorewall
+- name: Configure shorewall policy
+  template: 
+    src: policy
+    dest: /etc/shorewall/policy
+  notify:
+    - restart shorewall
+- name: Configure shorewall rules
+  template: 
+    src: rules
+    dest: /etc/shorewall/rules
+  notify:
+    - restart shorewall
+- name: Configure shorewall stoppedrules
+  template: 
+    src: stoppedrules
+    dest: /etc/shorewall/stoppedrules
+  notify:
+    - restart shorewall
+- name: Configure shorewall blrules
+  template: 
+    src: blrules
+    dest: /etc/shorewall/blrules
+  notify:
+    - restart shorewall

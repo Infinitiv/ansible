@@ -1,0 +1,2 @@
+ACCEPT {{internal_interface}} -
+ACCEPT - {{internal_interface}}

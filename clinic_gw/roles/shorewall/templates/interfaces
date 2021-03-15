@@ -1,0 +1,3 @@
+?FORMAT 2
+net {{external_interface}} dhcp,tcpflags,nosmurfs,routefilter,logmartians,sourceroute=0
+loc {{internal_interface}} dhcp,tcpflags,nosmurfs,routefilter,logmartians,routeback=1

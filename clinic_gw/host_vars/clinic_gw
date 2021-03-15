@@ -1,0 +1,20 @@
+external_interface: enp6s0
+external_address: 109.60.140.134
+external_netmask: 255.255.255.0
+external_gateway: 109.60.140.1
+
+internal_interface: enp7s0
+internal_address: 192.168.0.1
+internal_net_address: 192.168.0.
+internal_netmask: 255.255.255.0
+vipnet_subnet_fcod: 10.41.19.0/24
+vipnet_subnet_rcod: 10.61.0.0/16
+vipnet_ip: 192.168.0.254
+
+ns1: 8.8.8.8
+ns2: 8.8.4.4
+
+isma_ns_master: 87.255.232.90
+
+internal_subnet: 192.168.0.0/24
+

@@ -1,0 +1,43 @@
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+#dhcp
+ACCEPT loc fw udp 67:68
+ACCEPT fw loc udp 67:68
+#dns
+DNS(ACCEPT) loc fw
+DNS(ACCEPT) fw net
+DNS(ACCEPT) loc net
+DNS(ACCEPT) net fw
+#ssh
+SSH(ACCEPT) fw loc
+SSH(ACCEPT) net fw
+SSH(ACCEPT) loc fw
+#ping
+Ping(ACCEPT) loc fw
+Ping(DROP) net fw
+#icmp
+ACCEPT fw loc icmp
+ACCEPT fw net icmp
+#ntp
+NTP(ACCEPT) fw net
+NTP(ACCEPT) loc fw
+#http/https
+HTTP(ACCEPT) fw net
+HTTP(ACCEPT) loc net
+HTTP(ACCEPT) net fw
+HTTP(ACCEPT) loc fw
+HTTPS(ACCEPT) net fw
+HTTPS(ACCEPT) fw net
+HTTPS(ACCEPT) loc net
+HTTPS(ACCEPT) loc fw
+#RDP to 1C
+DNAT net loc:192.168.0.3:3389 tcp 3390
+#HTTP & HTTPS to vipnet subnets
+HTTP(ACCEPT) fw loc:{{vipnet_ip}}
+HTTP(ACCEPT) loc:{{vipnet_ip}} fw
+HTTPS(ACCEPT) fw loc:{{vipnet_ip}}
+HTTPS(ACCEPT) loc:{{vipnet_ip}} fw

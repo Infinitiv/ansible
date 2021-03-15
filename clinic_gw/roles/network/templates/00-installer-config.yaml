@@ -1,0 +1,21 @@
+network:
+  ethernets:
+    {{external_interface}}:
+      dhcp4: false
+      addresses:
+        - {{external_address}}/24
+      gateway4: {{external_gateway}}
+      nameservers:
+        addresses: [{{ns1}}, {{ns2}}]
+    {{internal_interface}}:
+      dhcp4: false
+      addresses:
+        - {{internal_address}}/24
+      nameservers:
+        addresses: [{{ns1}}, {{ns2}}]
+      routes:
+        - to: {{vipnet_subnet_fcod}}
+          via: {{vipnet_ip}}
+        - to: {{vipnet_subnet_rcod}}
+          via: {{vipnet_ip}}
+  version: 2

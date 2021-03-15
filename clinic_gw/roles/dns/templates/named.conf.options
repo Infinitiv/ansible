@@ -1,0 +1,17 @@
+options {
+        directory "/var/cache/bind";
+        listen-on { any; };
+        forwarders { {{ns1}}; {{ns2}}; };
+};
+
+zone "isma.ivanovo.ru" {
+        type slave;
+        file "/etc/bind/db.isma.ivanovo.ru";
+        masters { {{isma_ns_master}}; };
+};
+
+zone "vestnik-ivgma.ru" {
+        type slave;
+        file "/etc/bind/db.vestnik-ivgma.ru";
+        masters { {{isma_ns_master}}; };
+};
