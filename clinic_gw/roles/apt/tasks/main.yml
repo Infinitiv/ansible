@@ -7,5 +7,5 @@
     update_cache: yes
 - name: Install packages
   apt: 
-    name: ['ntp']
+    name: ['ntp', 'inetutils-traceroute', 'nmap', 'net-tools']
     state: present

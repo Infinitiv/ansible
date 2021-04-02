@@ -41,3 +41,7 @@ HTTP(ACCEPT) fw loc:{{vipnet_ip}}
 HTTP(ACCEPT) loc:{{vipnet_ip}} fw
 HTTPS(ACCEPT) fw loc:{{vipnet_ip}}
 HTTPS(ACCEPT) loc:{{vipnet_ip}} fw
+#DNAT vipnet
+DNAT loc:192.168.0.3 fw:192.168.0.1 - - - 10.41.19.0/24
+DNAT loc:192.168.0.3 fw:192.168.0.1 - - - 10.61.98.0/23
+DNAT loc:192.168.0.3 fw:192.168.0.1 - - - 10.61.202.30

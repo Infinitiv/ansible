@@ -6,12 +6,12 @@ options {
 
 zone "isma.ivanovo.ru" {
         type slave;
-        file "/etc/bind/db.isma.ivanovo.ru";
+        file "db.isma.ivanovo.ru";
         masters { {{isma_ns_master}}; };
 };
 
 zone "vestnik-ivgma.ru" {
         type slave;
-        file "/etc/bind/db.vestnik-ivgma.ru";
+        file "db.vestnik-ivgma.ru";
         masters { {{isma_ns_master}}; };
 };
