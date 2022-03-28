@@ -25,6 +25,5 @@
     - moodle
     - irbis64
     - libisma
-    - stat
   notify:
     - reload nginx
