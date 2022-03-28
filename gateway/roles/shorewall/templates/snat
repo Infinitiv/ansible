@@ -1,0 +1,1 @@
+MASQUERADE {{external_interface}} {{internal_subnet}}
