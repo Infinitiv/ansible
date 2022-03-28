@@ -18,7 +18,7 @@ ns2: 87.255.238.75
 ya_ns1: 77.88.8.3
 ya_ns2: 77.88.8.7
 
-isma_ns_slave: 64.137.245.141
+isma_ns_slave: 109.60.140.134
 
 internal_subnet: 192.168.45.0/24
 
