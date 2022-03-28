@@ -7,6 +7,9 @@
 #dhcp
 ACCEPT loc fw udp 67:68
 ACCEPT fw loc udp 67:68
+#iperf
+ACCEPT loc fw tcp 5001
+ACCEPT fw loc tcp 5001
 #dns
 DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
@@ -34,32 +37,22 @@ HTTPS(ACCEPT) net fw
 HTTPS(ACCEPT) fw net
 HTTPS(ACCEPT) loc net
 HTTPS(ACCEPT) loc fw
-#openvpn
-ACCEPT loc fw udp 1194
 #web-servers
-#lxc-server7
-ACCEPT loc:10.0.5.0/24 fw tcp 3000:3010,8080
-ACCEPT fw loc:10.0.5.0/24 tcp 3000:3010,8080
 #lxc01
-ACCEPT fw loc:10.109.147.0/24 tcp 3000:3010,8080
-ACCEPT loc:10.109.147.0/24 fw tcp 3000:3010,8080
+ACCEPT fw loc:10.109.147.0/24 tcp 3000:3010,8080,80
+ACCEPT loc:10.109.147.0/24 fw tcp 3000:3010,8080,80
 #lxc-1C
 ACCEPT loc:10.49.244.0/24 fw tcp 8080
 ACCEPT fw loc:10.49.244.0/24 tcp 8080
+#server-1c
+#DNAT net loc:10.109.147.105:22 tcp 22455
+#pg-1c
+#DNAT net loc:10.94.192.97:22 tcp 22456
+#license-1c
+#DNAT net loc:10.109.147.136:22 tcp 22457
 #library
 ACCEPT loc:192.168.45.5 fw tcp 8080,80
 ACCEPT fw loc:192.168.45.5 tcp 8080,80
-#1C
-ACCEPT loc:192.168.45.2 fw tcp 3000
-ACCEPT fw loc:192.168.45.2 tcp 3000
-#???
-ACCEPT loc:10.0.5.129 fw tcp 3838
-ACCEPT fw loc:10.0.5.129 tcp 3838
-#garant
-ACCEPT loc fw tcp 5051,3600:3609
-ACCEPT fw loc tcp 5051,3600:3609
-ACCEPT loc fw udp 5051,3600:3609
-ACCEPT fw loc udp 5051,3600:3609
 #webinar.ru
 ACCEPT loc net tcp 1935
 ACCEPT net loc tcp 1935
@@ -73,23 +66,22 @@ ACCEPT loc net tcp 5060:5061
 ACCEPT net loc tcp 5060:5061
 ACCEPT loc net udp 21000:21999,54000:54999
 ACCEPT net loc udp 21000:21999,54000:54999
-#1C
-DNAT net loc:192.168.45.2:22 tcp 22452
 #VipNet
-DNAT net loc:192.168.45.6 udp 55777 55777
-DNAT net loc:192.168.45.6 udp 2046 2046
-ACCEPT all fw udp 55777 55777
-ACCEPT net loc udp - 55777
+ACCEPT net loc udp 55777
+ACCEPT loc net udp 55777
+ACCEPT net loc udp  2046:2047
+ACCEPT loc net udp  2046:2047
+ACCEPT net loc tcp 5000:5002
+ACCEPT loc net tcp 5000:5002
 #lxd
-ACCEPT loc:192.168.45.7 fw tcp 8443
-ACCEPT loc:192.168.45.2 fw tcp 8443
 ACCEPT loc:192.168.45.18 fw tcp 8443
 ACCEPT loc:192.168.45.20 fw tcp 8443
-#ACCEPT loc:10.0.5.1 fw tcp 8443
-ACCEPT fw loc:192.168.45.7 tcp 8443
-ACCEPT fw loc:192.168.45.2 tcp 8443
 ACCEPT fw loc:192.168.45.18 tcp 8443
 ACCEPT fw loc:192.168.45.20 tcp 8443
-#ACCEPT fw loc:10.0.5.1 tcp 8443
 #synology
-DNAT net loc:192.168.45.17:5000 tcp 5000
+#DNAT net loc:192.168.45.17:5000 tcp 5000
+#clinic backup
+#ACCEPT fw loc:192.168.45.17 tcp 2049
+#ACCEPT loc:192.168.45.17 fw tcp 2049
+#ACCEPT loc:192.168.45.17 fw udp
+#ACCEPT fw loc:192.168.45.17 udp
