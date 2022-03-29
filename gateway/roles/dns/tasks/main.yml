@@ -13,12 +13,16 @@
   template:
     src: db.isma.ivanovo.ru
     dest: /etc/bind/db.isma.ivanovo.ru
-  notify:
-    - restart dns
+- name: Configure zone isma.ivanovo.ru
+  template:
+    src: db.ivgma.ru
+    dest: /etc/bind/db.ivgma.ru
 - name: Configure zone vestnik-ivgma
   template:
     src: db.vestnik-ivgma.ru
     dest: /etc/bind/db.vestnik-ivgma.ru
+  notify:
+    - restart dns
 - name: Configure zone libisma
   template:
     src: db.libisma.ru

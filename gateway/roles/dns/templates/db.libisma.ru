@@ -1,4 +1,4 @@
-$ORIGIN vestnik-ivgma.ru.
+$ORIGIN libisma.ru.
 $TTL 3600
 @       IN      SOA     ns it ( 20170210 10800 3600 604800 86400 )
 @       IN      A       {{ external_address }}

@@ -10,8 +10,20 @@ zone "isma.ivanovo.ru" {
         allow-transfer { {{isma_ns_slave}}; };
 };
 
+zone "ivgma.ru" {
+        type master;
+        file "/etc/bind/db.ivgma.ru";
+        allow-transfer { {{isma_ns_slave}}; };
+};
+
 zone "vestnik-ivgma.ru" {
         type master;
         file "/etc/bind/db.vestnik-ivgma.ru";
+        allow-transfer { {{isma_ns_slave}}; };
+};
+
+zone "libisma.ru" {
+        type master;
+        file "/etc/bind/db.libisma.ru";
         allow-transfer { {{isma_ns_slave}}; };
 };
