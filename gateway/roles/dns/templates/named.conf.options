@@ -1,29 +1,43 @@
+acl "trusted" {
+        87.255.232.90;
+        109.60.140.134;
+        192.168.45.0/24;
+};
+
 options {
+        dnssec-enable no;
+        dnssec-validation no;
         directory "/var/cache/bind";
+        recursion yes;
+        allow-recursion { trusted; };
         listen-on { any; };
-        forwarders { {{ya_ns1}}; {{ya_ns2}}; };
+        forwarders { 77.88.8.3; 77.88.8.7; };
 };
 
 zone "isma.ivanovo.ru" {
         type master;
         file "/etc/bind/db.isma.ivanovo.ru";
         allow-transfer { {{isma_ns_slave}}; };
+        also-notify { {{isma_ns_slave}}; };
 };
 
 zone "ivgma.ru" {
         type master;
         file "/etc/bind/db.ivgma.ru";
         allow-transfer { {{isma_ns_slave}}; };
+        also-notify { {{isma_ns_slave}}; };
 };
 
 zone "vestnik-ivgma.ru" {
         type master;
         file "/etc/bind/db.vestnik-ivgma.ru";
         allow-transfer { {{isma_ns_slave}}; };
+        also-notify { {{isma_ns_slave}}; };
 };
 
 zone "libisma.ru" {
         type master;
         file "/etc/bind/db.libisma.ru";
         allow-transfer { {{isma_ns_slave}}; };
+        also-notify { {{isma_ns_slave}}; };
 };

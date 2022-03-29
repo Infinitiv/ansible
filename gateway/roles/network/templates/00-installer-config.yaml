@@ -3,14 +3,14 @@ network:
     {{external_interface}}:
       dhcp4: false
       addresses:
-        - {{external_address}}
+        - {{external_subnet}}
       gateway4: {{external_gateway}}
       nameservers:
         addresses: [{{ya_ns1}}, {{ya_ns2}}]
     {{internal_interface}}:
       dhcp4: false
       addresses:
-        - {{internal_address}}
+        - {{internal_subnet}}
       nameservers:
         addresses: [{{ya_ns1}}, {{ya_ns2}}]
       routes:

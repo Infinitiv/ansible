@@ -23,10 +23,10 @@
     dest: /etc/shorewall/interfaces
   notify:
     - restart shorewall
-- name: Configure shorewall masq
+- name: Configure shorewall snat
   template: 
-    src: masq
-    dest: /etc/shorewall/masq
+    src: snat
+    dest: /etc/shorewall/snat
   notify:
     - restart shorewall
 - name: Configure shorewall policy
