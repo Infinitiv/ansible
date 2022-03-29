@@ -14,8 +14,6 @@ network:
       nameservers:
         addresses: [{{ya_ns1}}, {{ya_ns2}}]
       routes:
-        - to: {{lxc_subnet1}}
-          via: {{lxc_host1}}
         - to: {{lxc_subnet2}}
           via: {{lxc_host2}}
         - to: {{lxc_subnet3}}
