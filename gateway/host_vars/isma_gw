@@ -20,6 +20,6 @@ ya_ns2: 77.88.8.7
 
 isma_ns_slave: 109.60.140.134
 
-external_subnet: 87.255.232.90/30
+external_subnet: 87.255.232.90/32
 internal_subnet: 192.168.45.0/24
 

@@ -10,7 +10,7 @@ network:
     {{internal_interface}}:
       dhcp4: false
       addresses:
-        - {{internal_subnet}}
+        - {{internal_address}}/24
       nameservers:
         addresses: [{{ya_ns1}}, {{ya_ns2}}]
       routes:
