@@ -1,0 +1,101 @@
+---
+- name: Install GLPI
+  hosts:
+    - glpi_mysql_server
+    - glpi_server
+  become: yes
+  become_method: sudo
+  vars:
+    glpi_version: "10.0.7"
+    # mysql_root_password: DBPASSWORD
+    mysql_root_password: ''
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: System update
+      apt:
+        upgrade: yes
+        autoremove: yes
+        autoclean: yes
+        update_cache: yes
+        
+    - name: Install dependencies
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - php
+        - php-cli
+        - php-fpm
+        - php-mysql
+        - php-ldap
+        - php-curl
+        - php-xml
+        - nginx
+        - unzip
+      when: "'glpi_server' in group_names"
+
+    - name: Install MySQL server
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - mysql-server
+        - python3-pymysql
+      when: "'glpi_mysql_server' in group_names"
+      
+    - name: Ensure /var/www/glpi directory exists
+      file:
+        path: /var/www/html/glpi
+        state: directory
+        mode: '0755'
+      when: "'glpi_server' in group_names"
+
+    - name: Download and extract GLPI
+      unarchive:
+        src: "https://github.com/glpi-project/glpi/releases/download/{{ glpi_version }}/glpi-{{ glpi_version }}.tgz"
+        dest: /var/www/html/glpi
+        remote_src: yes
+        owner: www-data
+        group: www-data
+        mode: '0755'
+      when: "'glpi_server' in group_names"
+
+    - name: Configure Nginx
+      template:
+        src: nginx-glpi.conf.j2
+        dest: /etc/nginx/sites-available/glpi.conf
+      notify:
+        - restart nginx
+      when: "'glpi_server' in group_names"
+
+    - name: Enable GLPI site
+      file:
+        src: /etc/nginx/sites-available/glpi.conf
+        dest: /etc/nginx/sites-enabled/glpi.conf
+        state: link
+      notify:
+        - restart nginx
+      when: "'glpi_server' in group_names"
+
+    - name: Set up MySQL database for GLPI
+      mysql_user:
+        name: glpi
+        password: "{{ mysql_root_password }}"
+        host: localhost
+        state: present
+      when: "'glpi_mysql_server' in group_names"
+
+    - name: Create GLPI database
+      mysql_db:
+        name: glpidb
+        state: present
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+      when: "'glpi_mysql_server' in group_names"
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
