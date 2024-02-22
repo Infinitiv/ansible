@@ -4,30 +4,38 @@
 ?SECTION INVALID
 ?SECTION UNTRACKED
 ?SECTION NEW
+
 #dhcp
 ACCEPT loc fw udp 67:68
 ACCEPT fw loc udp 67:68
+
 #iperf
 ACCEPT loc fw tcp 5001
 ACCEPT fw loc tcp 5001
+
 #dns
 DNS(ACCEPT) loc fw
 DNS(ACCEPT) fw net
 DNS(ACCEPT) loc net
 DNS(ACCEPT) net fw
+
 #ssh
 SSH(ACCEPT) fw loc
 SSH(ACCEPT) net fw
 SSH(ACCEPT) loc fw
+
 #ping
 Ping(ACCEPT) loc fw
 Ping(DROP) net fw
+
 #icmp
 ACCEPT fw loc icmp
 ACCEPT fw net icmp
+
 #ntp
 NTP(ACCEPT) fw net
 NTP(ACCEPT) loc fw
+
 #http/https
 HTTP(ACCEPT) fw net
 HTTP(ACCEPT) loc net
@@ -37,64 +45,99 @@ HTTPS(ACCEPT) net fw
 HTTPS(ACCEPT) fw net
 HTTPS(ACCEPT) loc net
 HTTPS(ACCEPT) loc fw
-#web-servers
-#lxc01
-ACCEPT fw loc:10.109.147.0/24 tcp 3000:3010,8080,80
-ACCEPT loc:10.109.147.0/24 fw tcp 3000:3010,8080,80
-#lxc-1C
-ACCEPT loc:10.49.244.0/24 fw tcp 8080
-ACCEPT fw loc:10.49.244.0/24 tcp 8080
-#server-1c
-#DNAT net loc:10.109.147.105:22 tcp 22455
-#pg-1c
-#DNAT net loc:10.94.192.97:22 tcp 22456
-#license-1c
-#DNAT net loc:10.109.147.136:22 tcp 22457
+
+#lxc
+#lxc01 web
+ACCEPT fw loc:{{lxc_subnet2}} tcp 3000:3010,8080,80
+ACCEPT loc:{{lxc_subnet2}} fw tcp 3000:3010,8080,80
+
+#client1c 
+#ssh
+DNAT net loc:{{client_1c}}:80 tcp 8081
+#web
+DNAT net loc:{{client_1c}}:22 tcp 22462
+#rdp
+DNAT net loc:{{client_1c}}:3389 tcp 3390
+
+#license-1c ssh
+#DNAT net loc:{{licence_1c}}:22 tcp 22457
+
+#ivgma-1c-server
+DNAT net loc:{{server-1c}}:22 tcp 22450
+#ivgma-1c-server-zabbix
+DNAT net loc:{{server-1c}}:10050 tcp 10051
+
+#lxc02
+#ivgma-pg-1c-accounting ssh
+DNAT net loc:{{pg_1c}}:22 tcp 22459
+
+#ivgma-pg-1c-accounting-zabbix
+DNAT net loc:{{pg_1c}}:10050 tcp 10052
+
+#asya
+DNAT net loc:10.94.192.86:5432 tcp 25432
+
+#lxd
+ACCEPT loc:{{lxc01}} fw tcp 8443
+ACCEPT loc:{{lxc02}} fw tcp 8443
+ACCEPT fw loc:{{lxc01}} tcp 8443
+ACCEPT fw loc:{{lxc02}} tcp 8443
+
 #library
-ACCEPT loc:192.168.45.5 fw tcp 8080,80
-ACCEPT fw loc:192.168.45.5 tcp 8080,80
-#webinar.ru
+#web
+ACCEPT loc:{{library_ip}} fw tcp 8080,80
+ACCEPT fw loc:{{library_ip}} tcp 8080,80
+#z59
+DNAT net loc:{{library_ip}} tcp 210
+
+#docker
+#datalens
+ACCEPT loc:{{docker_ip}} fw tcp 8080
+ACCEPT fw loc:{{docker_ip}} tcp 8080
+
+#mts-link.ru
 ACCEPT loc net tcp 1935
 ACCEPT net loc tcp 1935
-#RDP to library
-#DNAT net loc:192.168.45.3 tcp 3389
-DNAT net loc:192.168.45.47 tcp 3389
-#DNAT net loc:192.168.45.4 tcp 3389
-DNAT net loc:192.168.45.5:3389 tcp 3390
+
+#RDP to buh
+DNAT net loc:{{buh_ip}} tcp 3389
+
+#RDP to win server
+#DNAT net loc:{{win_server_ip}}:3389 tcp 3390
+
 #Video
 ACCEPT loc net tcp 5060:5061
 ACCEPT net loc tcp 5060:5061
 ACCEPT loc net udp 21000:21999,54000:54999
 ACCEPT net loc udp 21000:21999,54000:54999
+
 #VipNet
-ACCEPT net loc udp 55777
-ACCEPT loc net udp 55777
-ACCEPT net loc udp 2046:2047
-ACCEPT loc net udp 2046:2047
+ACCEPT net loc udp 55777:56032
+ACCEPT loc net udp 55777:56032
+ACCEPT net loc udp  2046:2047
+ACCEPT loc net udp  2046:2047
 ACCEPT net loc tcp 5000:5002
 ACCEPT loc net tcp 5000:5002
-#lxd
-ACCEPT loc:192.168.45.18 fw tcp 8443
-ACCEPT loc:192.168.45.20 fw tcp 8443
-ACCEPT fw loc:192.168.45.18 tcp 8443
-ACCEPT fw loc:192.168.45.20 tcp 8443
-#synology
-#DNAT net loc:192.168.45.17:5000 tcp 5000
-#clinic backup
-#ACCEPT fw loc:192.168.45.17 tcp 2049
-#ACCEPT loc:192.168.45.17 fw tcp 2049
-#ACCEPT loc:192.168.45.17 fw udp
-#ACCEPT fw loc:192.168.45.17 udp
-#sigur
-ACCEPT fw loc:10.109.147.222 tcp 3305,3308,3312,3314
-ACCEPT loc:10.109.147.222 fw tcp 3305,3308,3312,3314
-ACCEPT fw loc:10.109.147.222 udp 3303,3305
-ACCEPT loc:10.109.147.222 fw udp 3303,3305
-ACCEPT loc:10.94.192.54 fw tcp 3306
-ACCEPT fw loc:10.94.192.54 tcp 3306
-#DNAT net loc:10.109.147.222 tcp 3308
-#DNAT net loc:10.109.147.222 tcp 3312
-DNAT net loc:10.109.147.222 udp 3303
-DNAT net loc:10.109.147.222 udp 3305
+DNAT net loc:{{vipnet_ip}}:55777 udp 55777
 
+#synology
+DNAT net loc:{{synology_ip}}:5000 tcp 5000
+
+#clinic backup
+#ACCEPT fw loc:{{synology_ip}} tcp 2049
+#ACCEPT loc:{{synology_ip}} fw tcp 2049
+#ACCEPT loc:{{synology_ip}} fw udp
+#ACCEPT fw loc:{{synology_ip}} udp
 ACCEPT net fw tcp 5001
+
+#sigur
+ACCEPT fw loc:{{sygur_server}} tcp 3305,3308,3312,3314
+ACCEPT loc:{{sygur_server}} fw tcp 3305,3308,3312,3314
+ACCEPT fw loc:{{sygur_server}} udp 3303,3305
+ACCEPT loc:{{sygur_server}} fw udp 3303,3305
+DNAT net loc:{{sygur_server}} udp 3303
+DNAT net loc:{{sygur_server}} udp 3305
+
+#sigur mysql
+ACCEPT loc:{{mysql_sygur}} fw tcp 3306
+ACCEPT fw loc:{{mysql_sygur}} tcp 3306
