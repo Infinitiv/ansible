@@ -3,6 +3,9 @@
   become: yes
   become_method: sudo
   gather_facts: no
+  vars:
+    ansible_user={{sudo_user}}
+    ansible_sudo_pass={{sudo_password}}
   pre_tasks:
     - name: Install python
       raw: sudo apt install python-simplejson -y
