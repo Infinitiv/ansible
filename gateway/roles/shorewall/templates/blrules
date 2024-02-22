@@ -1,5 +1,2 @@
-DROP loc net:5.61.23.5 tcp
-DROP loc net:217.20.155.58 tcp
-DROP loc net:217.20.156.159 tcp
-WHITELIST net:109.60.202.232 all
-WHITELIST net:192.168.45.0/24 all
+WHITELIST net:{{home_ip}} all
+WHITELIST net:{{internal_subnet}} all
