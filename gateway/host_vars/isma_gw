@@ -5,8 +5,6 @@ external_gateway: 87.255.232.94
 internal_interface: enp4s0f0
 internal_address: 192.168.45.1
 internal_netmask: 255.255.255.0
-lxc_subnet1: 10.0.5.0/24
-lxc_host1: 192.168.45.7
 lxc_subnet2: 10.109.147.0/24
 lxc_host2: 192.168.45.18
 lxc_subnet3: 10.94.192.0/24
