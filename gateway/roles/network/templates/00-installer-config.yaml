@@ -14,8 +14,10 @@ network:
       nameservers:
         addresses: [{{ya_ns1}}, {{ya_ns2}}]
       routes:
-        - to: {{lxc_subnet2}}
-          via: {{lxc_host2}}
-        - to: {{lxc_subnet3}}
-          via: {{lxc_host3}}
+        - to: {{lxc_subnet01}}
+          via: {{lxc01}}
+        - to: {{lxc_subnet02}}
+          via: {{lxc02}}
+        - to:  172.16.15.0/26 
+          via: {{vipnet_ip}}
   version: 2
