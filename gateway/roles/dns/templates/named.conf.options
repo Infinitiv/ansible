@@ -1,7 +1,7 @@
 acl "trusted" {
-        87.255.232.90;
-        109.60.140.134;
-        192.168.45.0/24;
+        {{external_address}};
+        {{isma_ns_slave}};
+        {{internal_subnet}};
 };
 
 options {
@@ -11,7 +11,7 @@ options {
         recursion yes;
         allow-recursion { trusted; };
         listen-on { any; };
-        forwarders { 77.88.8.3; 77.88.8.7; };
+        forwarders { {{ya_ns1}}; {{ya_ns2}}; };
 };
 
 zone "isma.ivanovo.ru" {
@@ -21,9 +21,9 @@ zone "isma.ivanovo.ru" {
         also-notify { {{isma_ns_slave}}; };
 };
 
-zone "ivgma.ru" {
+zone "ivgmu.ru" {
         type master;
-        file "/etc/bind/db.ivgma.ru";
+        file "/etc/bind/db.ivgmu.ru";
         allow-transfer { {{isma_ns_slave}}; };
         also-notify { {{isma_ns_slave}}; };
 };
