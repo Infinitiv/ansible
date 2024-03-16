@@ -1,0 +1,37 @@
+upstream scos_upstream {
+        server 10.109.147.124:3000 max_fails=1 fail_timeout=10s;
+}
+server {
+        listen 80;
+        server_name     scos.ivgma.ru;
+
+        location / {
+                allow 87.255.232.90;
+                allow 192.168.45.0/24;
+                allow 109.60.220.232;
+                deny all;
+                proxy_pass              http://scos_upstream;
+                proxy_set_header        Host $host;
+                proxy_set_header        X-Forwarded-Proto https;
+                proxy_set_header        X-Forwarded-Ssl on;
+                proxy_set_header        X-Real-IP       $remote_addr;
+                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_buffering         off;
+                client_max_body_size    16m;
+                proxy_connect_timeout   600;
+                proxy_send_timeout      600;
+                proxy_read_timeout      600;
+                send_timeout            600;
+        }
+
+        if ($scheme != "https"){
+                return 301 https://$host$request_uri;
+        }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/scos.ivgma.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/scos.ivgma.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}

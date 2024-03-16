@@ -6,13 +6,24 @@
 - name: Copy conf files
   template: src={{item}} dest=/etc/nginx/sites-available/{{item}}
   with_items:
-    - isma
-    - vestnik-ivgma
-    - priem
-    - sign
-    - moodle
+    - chat
+    - datalens
+    - dpo
+    - glpi
     - irbis64
+    - irbis64_ivgma
+    - isma
+    - ivgma
     - libisma
+    - moodle
+    - moodle_ivgma
+    - priem
+    - priem2022_ivgma
+    - priem2023_ivgma
+    - scos
+    - sign
+    - vestnik-ivgma
+    - wekan
 - name: Create links
   file:
     src: /etc/nginx/sites-available/{{item}} 

@@ -1,0 +1,41 @@
+upstream chat_upstream {
+        server 10.109.147.28:3000;
+}
+server {
+        listen          80;
+        server_name     chat.ivgma.ru;
+
+        location / {
+                allow 87.255.232.90;
+                allow 192.168.45.0/24;
+                allow 109.60.220.232;
+                deny all;
+                client_max_body_size    100m;
+
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_set_header Host $http_host;
+
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto https;
+                proxy_set_header X-Nginx-Proxy true;
+
+                proxy_redirect off;
+
+                proxy_pass              http://chat_upstream;
+        }
+
+
+        if ($scheme != "https"){
+        return 301 https://$host$request_uri;
+        }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/chat.ivgma.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/chat.ivgma.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
